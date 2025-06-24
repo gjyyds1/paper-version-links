@@ -1,4 +1,4 @@
-name: Build API & Checking
+name: Get Version Links
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.10
+      - name: Set up Python 3.13
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
 
       - name: Install dependencies
         run: |
@@ -43,6 +43,6 @@ jobs:
         with:
           files: paper-versions.json
           name: "Release v1.${{ github.run_number }}"
-          body: "Commit: ${{ github.sha }}\nDownload the `release.zip` file and you are good to go!\nContinue by following the steps given in the README."
+          body: "Commit: ${{ github.sha }}\n下载 `paper-versions.json` 文件即可获得所有版本的下载链接。"
           tag_name: ${{ github.ref_name }}
 
